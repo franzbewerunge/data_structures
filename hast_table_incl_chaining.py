@@ -61,10 +61,4 @@ class ChainedHashTable:
             if item.key == key:         
                 return item.key
             
-        return None 
-
-
-hashtable = ChainedHashTable()
-hashtable.set('HII', 'hsdf')
-hashtable.set('dd', 'hsdf')
-hashtable.set('s', 'hsdf')
+        return None
