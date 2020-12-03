@@ -10,6 +10,7 @@ class ChainedHashTable:
         self.size = 256
         self.slots = [None for i in range(256)]
         self.count = 0
+        self.load_balance = 0
 
     def _hash(self, key):
         
@@ -45,6 +46,10 @@ class ChainedHashTable:
             # Add list with item to empty slot 
             self.slots[hash_key] = [item]
             self.count += 1
+        
+        # Log current Load Balance on hash table 
+        self.load_balance =  round(len([element for element in self.slots if element is not None]) / self.size, 2)
+        print(f'Load Balance Currently at {self.load_balance}')
 
     def get(self, key):
 
@@ -57,4 +62,9 @@ class ChainedHashTable:
                 return item.key
             
         return None 
-            
+
+
+hashtable = ChainedHashTable()
+hashtable.set('HII', 'hsdf')
+hashtable.set('dd', 'hsdf')
+hashtable.set('s', 'hsdf')
